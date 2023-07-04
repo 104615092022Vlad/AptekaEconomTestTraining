@@ -68,4 +68,16 @@ public class AptekaTest {
         });
     }
 
+    @Test
+    @DisplayName("Тест 5")
+    public void fifthTest() {
+        ElementsCollection subcategories = $$(".table-menu .dropdown:nth-child(3) ul li");
+        SelenideElement subcategory = subcategories.get(5);
+        String subcategoryName = subcategory.$("span").getAttribute("innerText");
+
+        step("проверка названия подкатегории", () -> {
+            assertThat(subcategoryName).isEqualTo("Соли для ванн");
+        });
+    }
+
 }
