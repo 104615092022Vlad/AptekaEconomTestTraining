@@ -56,4 +56,16 @@ public class AptekaTest {
         });
     }
 
+    @Test
+    @DisplayName("Тест 4")
+    public void fourthTest() {
+        ElementsCollection subcategories = $$(".table-menu .dropdown:nth-child(3) ul li");
+        SelenideElement subcategory = subcategories.get(2);
+        String subcategoryName = subcategory.$("span").getAttribute("innerText");
+
+        step("АаБбВвГгДдЕеЁёЖжЗзИиЙйКкЛлМмНнОоПпРрСсТтУуФфХхЦцЧчШшЩщЪъЫыЬьЭэЮюЯя", () -> {
+            assertThat(subcategoryName).isEqualTo("Гели для душа");
+        });
+    }
+
 }
