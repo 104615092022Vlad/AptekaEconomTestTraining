@@ -33,26 +33,26 @@ public class AptekaTest {
     }
 
     @Test
-    @DisplayName("–¢–µ—Å—Ç 2")
+    @DisplayName("¬’·‚ 2")
     public void secondTest() {
         SelenideElement category = $$(".dropdown .dropdown-toggle").get(0);
         ElementsCollection subcategories = $$(".table-menu .dropdown:nth-child(2) ul li");
 
-        step("–ø—Ä–æ–≤–µ—Ä–∫–∞ –∫–æ–ª–∏—á–µ—Å—Ç–≤–∞ –ø–æ–¥–∫–∞—Ç–µ–≥–æ—Ä–∏–π", () -> {
+        step("ﬂ‡ﬁ“’‡⁄– ⁄ﬁ€ÿÁ’·‚“– ﬂﬁ‘⁄–‚’”ﬁ‡ÿŸ", () -> {
             category.hover();
             assertThat(subcategories.size()).isEqualTo(12);
         });
     }
 
     @Test
-    @DisplayName("–¢–µ—Å—Ç 3")
+    @DisplayName("¬’·‚ 3")
     public void thirdTest() {
         ElementsCollection subcategories = $$(".table-menu .dropdown:nth-child(3) ul li");
         SelenideElement subcategory = subcategories.get(2);
         String subcategoryName = subcategory.$("span").getAttribute("innerText");
 
-        step("–ø—Ä–æ–≤–µ—Ä–∫–∞ –Ω–∞–∑–≤–∞–Ω–∏—è –ø–æ–¥–∫–∞—Ç–µ–≥–æ—Ä–∏–∏", () -> {
-            assertThat(subcategoryName).isEqualTo("–ì–µ–ª–∏ –¥–ª—è –¥—É—à–∞");
+        step("ﬂ‡ﬁ“’‡⁄– ›–◊“–›ÿÔ ﬂﬁ‘⁄–‚’”ﬁ‡ÿÿ", () -> {
+            assertThat(subcategoryName).isEqualTo("≥’€ÿ ‘€Ô ‘„Ë–");
         });
     }
 
