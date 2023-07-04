@@ -7,6 +7,7 @@ import org.openqa.selenium.Cookie;
 import java.util.*;
 
 import static com.codeborne.selenide.Selenide.*;
+import static io.qameta.allure.Allure.step;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 public class AptekaTest {
@@ -30,4 +31,29 @@ public class AptekaTest {
         assertThat(subcategories.size()).isEqualTo(12);
 
     }
+
+    @Test
+    @DisplayName("Тест 2")
+    public void secondTest() {
+        SelenideElement category = $$(".dropdown .dropdown-toggle").get(0);
+        ElementsCollection subcategories = $$(".table-menu .dropdown:nth-child(2) ul li");
+
+        step("проверка количества подкатегорий", () -> {
+            category.hover();
+            assertThat(subcategories.size()).isEqualTo(12);
+        });
+    }
+
+    @Test
+    @DisplayName("Тест 3")
+    public void thirdTest() {
+        ElementsCollection subcategories = $$(".table-menu .dropdown:nth-child(3) ul li");
+        SelenideElement subcategory = subcategories.get(2);
+        String subcategoryName = subcategory.$("span").getAttribute("innerText");
+
+        step("проверка названия подкатегории", () -> {
+            assertThat(subcategoryName).isEqualTo("Гели для душа");
+        });
+    }
+
 }
