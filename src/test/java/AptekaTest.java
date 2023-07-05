@@ -86,6 +86,8 @@ public class AptekaTest {
         SelenideElement category = $(".table-menu .dropdown:nth-child(3)");
         SelenideElement subcategory = category.$$("ul li").get(25);
         ElementsCollection productsGrid = $$(".catalog_item_wrapp");
+        ElementsCollection breadCrumbs = $$(".bx-breadcrumb-item--mobile");
+
         String categoryName = category.getText();
         String subcategoryName = subcategory.$("span.name").getAttribute("innerText");
 
@@ -94,6 +96,10 @@ public class AptekaTest {
 
         assertThat(productsGrid.size()).isGreaterThanOrEqualTo(1);
 
+        assertThat(breadCrumbs.get(0).getText()).isEqualTo("Главная");
+        assertThat(breadCrumbs.get(1).getText()).isEqualTo("Каталог");
+        assertThat(breadCrumbs.get(2).getText()).isEqualTo(categoryName);
+        assertThat(breadCrumbs.get(3).getText()).isEqualTo(subcategoryName);
 
     }
 
