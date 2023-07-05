@@ -80,4 +80,21 @@ public class AptekaTest {
         });
     }
 
+    @Test
+    @DisplayName("Каталог")
+    public void sixthTest() {
+        SelenideElement category = $(".table-menu .dropdown:nth-child(3)");
+        SelenideElement subcategory = category.$$("ul li").get(25);
+        ElementsCollection productsGrid = $$(".catalog_item_wrapp");
+        String categoryName = category.getText();
+        String subcategoryName = subcategory.$("span.name").getAttribute("innerText");
+
+        category.hover();
+        subcategory.click();
+
+        assertThat(productsGrid.size()).isGreaterThanOrEqualTo(1);
+
+
+    }
+
 }
